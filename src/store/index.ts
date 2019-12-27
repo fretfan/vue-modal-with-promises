@@ -14,14 +14,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    showYesNoModal(context: any, newState: any) {
+    setYesNoModal(context: any, newState: any) {
       context.commit("setYesNoModal", newState);
     },
-    hideYesNoModal(context: any) {
-      const newState = context.state.modalState;
-      newState.isShown = false;
-      context.commit("setYesNoModal", newState);
-    }
   },
   modules: {}
 });

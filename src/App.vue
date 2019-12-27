@@ -17,12 +17,21 @@ export default Vue.extend({
     Alert
   },
   methods: {
-    showModal() {
-      const call3 = () => {
-        console.log("call3");
-      };
-      const call2 = () => showYesNo("Alo 222", call3);
-      showYesNo("Alo 111", call2);
+    async showModal() {
+      const call2 = () => showYesNo("Alo 222", this);
+      const result = await showYesNo("Alo 111", this);
+      console.log(result);
+      if (result === "yes") {
+        const res2 = await showYesNo("Alo 222: on yes", this);
+        console.log(res2);
+        if (res2 === "yes") {
+          console.log("done");
+        }
+      } else if (result === "no") {
+        const res2 = await showYesNo("Alo 222: on no", this);
+        console.log(res2);
+      }
+      console.log("should execute last");
     }
   }
 });
