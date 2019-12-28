@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="yesNoModal" ref="Aloha" title="BootstrapVue">
+  <b-modal id="yesNoModal" title="BootstrapVue">
     Modal message:
     <p>{{ modalState.message }}</p>
     <template v-slot:modal-footer="{ hide }">

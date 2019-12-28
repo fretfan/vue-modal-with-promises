@@ -8,30 +8,26 @@
 <script lang="ts">
 import Vue from "vue";
 import Alert from "./Alert.vue";
-import { modalMixin } from "./modalMixin";
+import ShowAlertModal from './components/ShowAlertModal.vue';
 
 export default Vue.extend({
   name: "app",
-  mixins: [modalMixin],
+  extends: ShowAlertModal,
   components: {
     Alert
   },
   methods: {
     async showModal() {
-      // todo fix with vue-typed-mixins
-      // @ts-ignore
-      const result = await this.showYesNo("Alo 111", this);
+      const result = await this.showYesNo("Alo 111");
       console.log(result);
       if (result === "yes") {
-        // @ts-ignore
-        const res2 = await this.showYesNo("Alo 222: on yes", this);
+        const res2 = await this.showYesNo("Alo 222: on yes");
         console.log(res2);
         if (res2 === "yes") {
           console.log("done");
         }
       } else if (result === "no") {
-        // @ts-ignore
-        const res2 = await this.showYesNo("Alo 222: on no", this);
+        const res2 = await this.showYesNo("Alo 222: on no");
         console.log(res2);
       }
       console.log("should execute last");
