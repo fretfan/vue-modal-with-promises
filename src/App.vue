@@ -8,11 +8,13 @@
 <script lang="ts">
 import Vue from "vue";
 import Alert from "./Alert.vue";
-import ShowAlertModal from './components/ShowAlertModal.vue';
+import ShowAlertModal from "./components/ShowAlertModal.vue";
+import mixins from "vue-typed-mixins";
 
-export default Vue.extend({
+export default mixins(ShowAlertModal).extend({
   name: "app",
-  extends: ShowAlertModal,
+  // extends: ShowAlertModal,
+
   components: {
     Alert
   },

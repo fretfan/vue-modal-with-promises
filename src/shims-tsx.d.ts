@@ -12,9 +12,9 @@ declare global {
   }
 }
 
-declare module "vue/types/vue" {
-  // 3. Declare augmentation for Vue
-  interface Vue {
-    showYesNo: (text: string) => Promise<string>;
-  }
-}
+// declare module "vue/types/vue" {
+//   // 3. Declare augmentation for Vue
+//   interface Vue {
+//     showYesNo: (text: string) => Promise<string>;
+//   }
+// }
