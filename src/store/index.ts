@@ -16,26 +16,6 @@ export default new Vuex.Store({
   actions: {
     setModalData(context: any, state: any) {
       context.commit("setModalData", state);
-    },
-    showYesNoModal(context: any, message: any) {
-      return new Promise<any>((resolve: any) => {
-        const state = new ModalState();
-        state.message = message;
-        state.type = "yesNo";
-        state.resolver = resolve;
-
-        context.commit("setModalData", state);
-      });
-    },
-    showInfoModal(context: any, message: any) {
-      return new Promise<any>((resolve: any) => {
-        const state = new ModalState();
-        state.message = message;
-        state.type = "info";
-        state.resolver = resolve;
-
-        context.commit("setModalData", state);
-      });
     }
   },
   modules: {}

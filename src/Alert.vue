@@ -1,34 +1,34 @@
 <template>
-<div>
-  <b-modal
-    id="yesNoModal"
-    title="YesNo"
-    :visible="modalState.type === 'yesNo'"
-    @hide="hideHandler"
-    @hidden="hiddenHandler"
-  >
-    Modal message:
-    <p>{{ modalState.message }}</p>
-    <template v-slot:modal-footer="{ hide }">
-      <b-button @click="hide('yes')" variant="primary">Yes</b-button>
-      <b-button @click="hide('no')">No</b-button>
-    </template>
-  </b-modal>
+  <div>
+    <b-modal
+      id="yesNoModal"
+      title="YesNo"
+      :visible="modalState.type === 'yesNo'"
+      @hide="hideHandler"
+      @hidden="hiddenHandler"
+    >
+      Modal message:
+      <p>{{ modalState.message }}</p>
+      <template v-slot:modal-footer="{ hide }">
+        <b-button @click="hide('yes')" variant="primary">Yes</b-button>
+        <b-button @click="hide('no')">No</b-button>
+      </template>
+    </b-modal>
 
-  <b-modal
-    id="infoModal"
-    title="Info"
-    :visible="modalState.type === 'info'"
-    @hide="hideHandler"
-    @hidden="hiddenHandler"
-  >
-    <p :style="{color: 'red'}">Info Modal message:</p>
-    <p>{{ modalState.message }}</p>
-    <template v-slot:modal-footer="{ hide }">
-      <b-button @click="hide('yes')" variant="primary">Yes</b-button>
-    </template>
-  </b-modal>
-</div>
+    <b-modal
+      id="infoModal"
+      title="Info"
+      :visible="modalState.type === 'info'"
+      @hide="hideHandler"
+      @hidden="hiddenHandler"
+    >
+      <p :style="{ color: 'red' }">Info Modal message:</p>
+      <p>{{ modalState.message }}</p>
+      <template v-slot:modal-footer="{ hide }">
+        <b-button @click="hide('yes')" variant="primary">Yes</b-button>
+      </template>
+    </b-modal>
+  </div>
 </template>
 
 <script lang="ts">

@@ -1,13 +1,24 @@
 import { ModalState } from "./store/ModalState";
 import store from "./store";
-import { BvModalEvent } from "bootstrap-vue";
 
 export function showYesNoModal(message: string) {
-  return store.dispatch("showYesNoModal", message);
+  return new Promise<string>((resolve: any) => {
+    const state = new ModalState();
+    state.message = message;
+    state.type = "yesNo";
+    state.resolver = resolve;
+
+    store.dispatch("setModalData", state);
+  });
 }
 
 export function showInfoModal(message: string) {
-  return store.dispatch("showInfoModal", message);
+  return new Promise<string>((resolve: any) => {
+    const state = new ModalState();
+    state.message = message;
+    state.type = "info";
+    state.resolver = resolve;
+
+    store.dispatch("setModalData", state);
+  });
 }
-
-
