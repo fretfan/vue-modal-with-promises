@@ -2,34 +2,12 @@ import { ModalState } from "./store/ModalState";
 import store from "./store";
 import { BvModalEvent } from "bootstrap-vue";
 
-// todo: get rid of vm. Use mixin/plugin?
-// NB! Better use 'extends' with YesNoModal.vue
-export function showYesNo(message: string, vm: any) {
-  return new Promise((resolve, reject) => {
-    const state = new ModalState();
-    state.message = message;
-    store.dispatch("setYesNoModal", state);
-    vm.$bvModal.show("yesNoModal");
-
-    let trigger: string | null = null;
-
-    vm.$root.$on(
-      "bv::modal::hide",
-      (bvEvent: BvModalEvent, modalId: string) => {
-        if (modalId === "yesNoModal") {
-          trigger = bvEvent.trigger;
-        }
-      }
-    );
-
-    vm.$root.$on(
-      "bv::modal::hidden",
-      (bvEvent: BvModalEvent, modalId: string) => {
-        if (modalId === "yesNoModal") {
-          store.dispatch("setYesNoModal", new ModalState());
-          resolve(trigger);
-        }
-      }
-    );
-  });
+export function showYesNoModal(message: string) {
+  return store.dispatch("showYesNoModal", message);
 }
+
+export function showInfoModal(message: string) {
+  return store.dispatch("showInfoModal", message);
+}
+
+

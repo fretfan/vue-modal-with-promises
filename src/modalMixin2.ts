@@ -1,7 +1,7 @@
 import { ModalState } from "./store/ModalState";
 import { BvModalEvent } from "bootstrap-vue";
 
-// NB! Better use 'extends' with YesNoModal.vue
+// NB! Mixins have weak typescript support. Don't use this
 export const modalMixin = {
   methods: {
     showYesNo(message: string) {

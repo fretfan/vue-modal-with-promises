@@ -9,8 +9,8 @@ export default Vue.extend({
       return new Promise((resolve, reject) => {
         const state = new ModalState();
         state.message = message;
+        state.type = "yesNo";
         this.$store.dispatch("setYesNoModal", state);
-        this.$bvModal.show("yesNoModal");
 
         let triggerName: string | null = null;
 

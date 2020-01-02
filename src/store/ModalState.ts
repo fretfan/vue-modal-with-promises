@@ -1,3 +1,7 @@
 export class ModalState {
-  constructor(public message?: string) {}
+  constructor(
+    public message?: string,
+    public type?: string,
+    public resolver?: (val: string | null) => void
+  ) {}
 }

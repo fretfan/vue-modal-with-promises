@@ -10,6 +10,7 @@ import Vue from "vue";
 import Alert from "./Alert.vue";
 import ShowAlertModal from "./components/ShowAlertModal.vue";
 import mixins from "vue-typed-mixins";
+import { showYesNoModal, showInfoModal } from "./alertModal1";
 
 export default mixins(ShowAlertModal).extend({
   name: "app",
@@ -20,6 +21,22 @@ export default mixins(ShowAlertModal).extend({
   },
   methods: {
     async showModal() {
+      const result = await showYesNoModal("Alo 111");
+      console.log(result);
+      if (result === "no") {
+        const res2 = await showInfoModal("Alo 222: on yes");
+        console.log(res2);
+      }
+      //   if (res2 === "yes") {
+      //     console.log("done");
+      //   }
+      // } else if (result === "no") {
+      //   const res2 = await this.showYesNo("Alo 222: on no");
+      //   console.log(res2);
+      // }
+      console.log("should execute last");
+    },
+    async showModal2() {
       const result = await this.showYesNo("Alo 111");
       console.log(result);
       if (result === "yes") {
